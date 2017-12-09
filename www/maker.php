@@ -13,7 +13,10 @@ if (sizeof($file_texts) > 0){
     $rows_js = array();
 
     $dates = array();
-    foreach($file_texts as $file_text){
+    $values = array();
+    foreach($file_texts as $kk => $file_text){
+        $values[] = array();
+
         $lines = explode("\n", $file_text);
         foreach ($lines as $k => $line) {
             if ($k == 0){
@@ -21,10 +24,39 @@ if (sizeof($file_texts) > 0){
                 continue;
             }
             $cells = explode(",", $line);
-            $date_parts = explode("-", $cells[0]);
-            $rows_js[] = "[new Date(".$date_parts[0].", ".$date_parts[1].", ".$date_parts[2]."), ".$cells[1]."]";
+            $dates[] = $cells[0];
+            $values[$kk][] = $cells[1];
+//            $date_parts = explode("-", $cells[0]);
+//            $rows_js[] = "[new Date(".$date_parts[0].", ".$date_parts[1].", ".$date_parts[2]."), ".$cells[1]."]";
         }
 
+    }
+
+    # well, dates filled
+    $unique_dates = array_unique($dates);
+    foreach ($unique_dates as $date){
+        $date_parts = explode("-", $date);
+        $row_js = "[new Date(".$date_parts[0].", ".$date_parts[1].", ".$date_parts[2].") ";
+//        echo $date . "\n";
+        foreach($file_texts as $kk => $file_text){
+//            echo $kk . "\n";
+            $found = false;
+            $lines = explode("\n", $file_text);
+            foreach ($lines as $k => $line) {
+                $cells = explode(",", $line);
+                $date_to_add = $cells[0];
+                if ($date == $date_to_add){
+                    $found = $cells[1];
+                }
+            }
+            if (!$found){
+                $row_js .= ", null";
+            }else{
+                $row_js .= ",".$found;
+            }
+        }
+        $row_js .= "]";
+        $rows_js[] = $row_js;
     }
 
     $rows_js = "data.addRows([" . implode(",\n", $rows_js) .  "]);";

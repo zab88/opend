@@ -81,7 +81,7 @@
             console.log(chart.getVisibleChartRange())
         });
 
-        chart.draw(data, {displayAnnotations: true});
+        chart.draw(data, {displayAnnotations: true, interpolateNulls: true});
     }
 </script>
 
