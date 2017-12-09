@@ -7,12 +7,9 @@
       function drawChart() {
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Date');
+        data.addColumn('number', 'Средняя зарплата');
         data.addColumn('number', 'Sold Pencils');
-//        data.addColumn('string', 'title1');
-//        data.addColumn('string', 'text1');
-        data.addColumn('number', 'Sold Pens');
-//        data.addColumn('string', 'title2');
-//        data.addColumn('string', 'text2');
+//        data.addColumn('number', 'Sold Pens');
         data.addRows([
 //          [new Date(2008, 1 ,1), 30000, undefined, undefined, 40645, undefined, undefined],
 //          [new Date(2008, 1 ,2), 14045, undefined, undefined, 20374, undefined, undefined],
@@ -21,28 +18,52 @@
 //          [new Date(2008, 1 ,5), 41476, 'Bought Pens','Bought 200k pens', 66467, undefined, undefined],
 //          [new Date(2008, 1 ,6), 33322, undefined, undefined, 39463, undefined, undefined]
 
-            [new Date(2008, 1 ,1), 30000, 40645],
-          [new Date(2008, 1 ,2), 14045, 20374],
-          [new Date(2008, 1 ,3), 55022, 50766],
-          [new Date(2008, 1 ,4), 75284, 14334],
-          [new Date(2008, 1 ,5), 41476, 66467],
-          [new Date(2008, 1 ,6), 33322, 39463]
-        ]);
+//            [new Date(2008, 1 ,1), 30000, 40645],
+//          [new Date(2008, 1 ,2), 14045, 20374],
+//          [new Date(2008, 1 ,3), 55022, 50766],
+//          [new Date(2008, 1 ,4), 75284, 14334],
+//          [new Date(2008, 1 ,5), 41476, 66467],
+//          [new Date(2008, 1 ,6), 33322, 39463]
 
-//        google.visualization.events.addListener(data, 'statechange', function () {
-//        google.visualization.events.addOneTimeListener(data, 'rangechange', function () {
-        google.visualization.events.addListener(data, 'rangechange', function () {
-            console.log(data.getVisibleChartRange())
-//            var state = control.getState();
-//            console.log(state.range.start, state.range.end)
-        });
+            [new Date(2015, 01, 15), 15122],
+            [new Date(2015, 02, 15), 20351],
+            [new Date(2015, 03, 15), 20200],
+            [new Date(2015, 04, 15), 21654],
+            [new Date(2015, 05, 15), 24960],
+            [new Date(2015, 06, 15), 27107],
+            [new Date(2015, 07, 15), 27133],
+            [new Date(2015, 08, 15), 24904],
+            [new Date(2015, 09, 15), 24505],
+            [new Date(2015, 10, 15), 26130],
+            [new Date(2015, 11, 15), 26041],
+            [new Date(2015, 12, 15), 40075],
+            [new Date(2016, 01, 15), 20734],
+            [new Date(2016, 02, 15), 26594],
+            [new Date(2016, 03, 15), 27113],
+            [new Date(2016, 04, 15), 30330],
+            [new Date(2016, 05, 15), 27620],
+            [new Date(2016, 06, 15), 31451],
+            [new Date(2016, 07, 15), 29107],
+            [new Date(2016, 08, 15), 28674],
+            [new Date(2016, 09, 15), 27176],
+            [new Date(2016, 10, 15), 27042],
+            [new Date(2016, 11, 15), 28531],
+            [new Date(2016, 12, 15), 42423],
+            [new Date(2017, 01, 15), 21687],
+            [new Date(2017, 02, 15), 28011],
+            [new Date(2017, 03, 15), 27443],
+            [new Date(2017, 04, 15), 29072],
+            [new Date(2017, 05, 15), 28452],
+            [new Date(2017, 06, 15), 31452],
+            [new Date(2017, 07, 15), 28790],
+            [new Date(2017, 08, 15), 28010],
+            [new Date(2017, 09, 15), 27744]
+        ]);
 
         var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('chart_div'));
 
         google.visualization.events.addListener(chart, 'rangechange', function () {
             console.log(chart.getVisibleChartRange())
-//            var state = control.getState();
-//            console.log(state.range.start, state.range.end)
         });
 
         chart.draw(data, {displayAnnotations: true});
