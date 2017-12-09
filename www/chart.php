@@ -15,15 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <?php
-            var_dump($_POST);
-            foreach($_POST as $k => $el){
-                if (substr($k, 0, 1) == "s"){
-                    echo $k;
-                    echo $el;
-                }
-            }
-            ?>
+            <div id='chart_div' style='width: 100%;height:520px;'></div>
         </div>
         <div class="col-md-3">
             <form method="POST">
@@ -74,5 +66,24 @@
 <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script type='text/javascript' src='//www.gstatic.com/charts/loader.js'></script>
+<script type='text/javascript'>
+    google.charts.load('current', {'packages':['annotatedtimeline']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        <?php include "maker.php"; ?>
+
+        var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('chart_div'));
+
+        google.visualization.events.addListener(chart, 'rangechange', function () {
+            console.log(chart.getVisibleChartRange())
+        });
+
+        chart.draw(data, {displayAnnotations: true});
+    }
+</script>
+
 </body>
 </html>
