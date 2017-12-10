@@ -20,9 +20,9 @@
             <div id='chart_div' style='width: 100%;height:520px;'></div>
             <br/>
             <hr/>
-            <h4>Фильтр событий по категориям:</h4>
+            <h4><span id="ss"></span> <span id="ee"></span> Фильтр событий по категориям:</h4>
             <br>
-            <button class="btn btn-default" type="button" onclick="$('.ggg').hide();$('.label-default').show();">Сельское хозяйство</button>
+            <button class="btn btn-default" type="button" onclick="$('.ggg').show();$('.label-default').show();">Все события</button>
             <button class="btn btn-primary" type="button" onclick="$('.ggg').hide();$('.label-primary').show();">Сельское хозяйство</button>
             <button class="btn btn-success" type="button" onclick="$('.ggg').hide();$('.label-success').show();">Сельское хозяйство</button>
             <br />
@@ -124,7 +124,14 @@
         var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('chart_div'));
 
         google.visualization.events.addListener(chart, 'rangechange', function () {
-            console.log(chart.getVisibleChartRange())
+//            console.log(chart.getVisibleChartRange())
+            var ss_ee = chart.getVisibleChartRange();
+//            console.log(ss_ee)
+            console.log(ss_ee['start'])
+            var ss = ss_ee['start'].getFullYear()+'-'+(ss_ee['start'].getMonth()+1.)+'-'+(ss_ee['start'].getDate()+1.)
+            var ee = ss_ee['end'].getFullYear()+'-'+(ss_ee['end'].getMonth()+1.)+'-'+(ss_ee['end'].getDate()+1.)
+            $('#ss').text(ss);
+            $('#ee').text(ee);
         });
 
         chart.draw(data, {displayAnnotations: true, interpolateNulls: true});
