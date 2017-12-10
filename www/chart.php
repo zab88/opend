@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hello, world!</title>
+    <title>Открытые данные НСО и исторические события на временной шкале</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,11 @@
     <div class="row">
         <div class="col-md-9">
             <div id='chart_div' style='width: 100%;height:520px;'></div>
+            <br/>
+            <hr/>
+            <br>
+            <?php include "events.php" ?>
+
         </div>
         <div class="col-md-3">
             <form method="POST">
@@ -85,7 +90,11 @@
             </form>
         </div>
     </div>
+    <div class="row">
+
+    </div>
 </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -110,6 +119,32 @@
         chart.draw(data, {displayAnnotations: true, interpolateNulls: true});
     }
 </script>
+
+
+<hr />
+<div class="container">
+<h3>Добавление события</h3>
+
+<form method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Дата начала</label>
+        <input name="begin" type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Дата окончания</label>
+        <input name="end" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Название</label>
+        <input name="name" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Источник</label>
+        <input name="link" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
 
 </body>
 </html>
