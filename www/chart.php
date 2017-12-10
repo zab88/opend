@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body>
-<h1>Hello, world!</h1>
+<h2 class="text-center">Открытые данные НСО и исторические события на временной шкале</h2>
+<hr />
 
 <div class="container">
     <div class="row">
@@ -52,6 +53,31 @@
                     </label>
                     <label>
                         <input type="checkbox" name="s11"> Средняя зарплата
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="s12"> Средние цены на рынке жилья по Новосибирской области первичный рынок
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s13"> Средние цены на рынке жилья по Новосибирской области вторичный рынок
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s14"> Удельный вес организаций (в % к общему числу обследованных организаций), используюших выделенные каналы связи
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s15"> Удельный вес организаций (в % к общему числу обследованных организаций), имеющих web-сайт в Интернете
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s16"> Число умершиъх за год Новосибирская область
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s17"> Число рожденных за год в Новосибирской области
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s18"> Поголовье скота и птицы в хозяйствах всех категорий
+                    </label>
+                    <label>
+                        <input type="checkbox" name="s19"> Посевные площади сельскохозяйственных культур
                     </label>
                 </div>
                 <button type="submit" class="btn btn-default btn-success">Отобразить</button>
