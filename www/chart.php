@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 <h2 class="text-center">Открытые данные НСО и исторические события на временной шкале</h2>
@@ -19,7 +20,17 @@
             <div id='chart_div' style='width: 100%;height:520px;'></div>
             <br/>
             <hr/>
+            <h4>Фильтр событий по категориям:</h4>
             <br>
+            <button class="btn btn-default" type="button" onclick="$('.ggg').hide();$('.label-default').show();">Сельское хозяйство</button>
+            <button class="btn btn-primary" type="button" onclick="$('.ggg').hide();$('.label-primary').show();">Сельское хозяйство</button>
+            <button class="btn btn-success" type="button" onclick="$('.ggg').hide();$('.label-success').show();">Сельское хозяйство</button>
+            <br />
+            <br />
+            <button class="btn btn-info" type="button" onclick="$('.ggg').hide();$('.label-info').show();">Сельское хозяйство</button>
+            <button class="btn btn-warning" type="button" onclick="$('.ggg').hide();$('.label-warning').show();">Сельское хозяйство</button>
+            <button class="btn btn-danger" type="button" onclick="$('.ggg').hide();$('.label-danger').show();">Сельское хозяйство</button>
+            <hr />
             <?php include "events.php" ?>
 
         </div>
@@ -145,6 +156,8 @@
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
+
+<hr />
 
 </body>
 </html>
